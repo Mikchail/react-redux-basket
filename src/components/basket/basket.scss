@@ -1,0 +1,55 @@
+.basket-list {
+  display: flex;
+  flex-direction: column;
+  max-width: 780px;
+  // .basket-list__item
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  // .basket-list__title
+
+  &__title {
+  }
+  &__count{
+    
+    padding: 0 10px;
+  }
+  // .basket-list__img
+
+  &__img {
+    object-fit: contain;
+  }
+
+  // .basket-list__quantity
+
+  &__quantity {
+  }
+
+  // .basket-list__price
+
+  &__price {
+  }
+
+  // .basket-list__item-wr
+
+  &__item-wr {
+    display: flex;
+    align-content: center;
+    align-items: center;
+  }
+
+  // .basket-list__btn-plus
+
+  &__btn-plus {
+  }
+
+  // .basket-list__btn-minus
+
+  &__btn-minus {
+  }
+}

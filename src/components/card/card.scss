@@ -1,0 +1,27 @@
+
+@import '../../conf';
+
+.card{
+
+  @media (min-width: $media768) {
+    margin: 0 10px 20px;
+    width: calc(33.33% - 20px);
+  }
+
+
+  &__title{
+    font-size: 20px;
+  }
+  &__quantity{
+
+  }
+  &__img{
+    object-fit: contain;
+  }
+  &__price{
+
+  }
+  &__button{
+
+  }
+}
