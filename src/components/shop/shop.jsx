@@ -9,6 +9,7 @@ import Loading from '../loading/loading';
 import Card from '../card/card';
 
 import './shop.scss';
+
 const Shop = (props) => {
   const {isLoading, goods, addToBasket} = props;
   console.log(isLoading);
