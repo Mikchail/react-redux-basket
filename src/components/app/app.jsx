@@ -16,7 +16,7 @@ const SinginWithValue = withValue(Singin);
 
 import './app.scss';
 const App = (props) => {
-  const {basket, addToBasket, removeFromBasket,addGood} = props;
+  const {basket, addToBasket, removeFromBasket,addGood,allRemoveFromBasket} = props;
   return (
     <div className="wrapper">
       <BrowserRouter>
@@ -50,6 +50,7 @@ const App = (props) => {
                 return (
                   <Basket
                     basket={basket}
+                    allRemoveFromBasket={allRemoveFromBasket}
                     addToBasket={addToBasket}
                     removeFromBasket={removeFromBasket}
                   />
@@ -89,6 +90,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   addGood: (good) => {
     dispatch(ActionCreator.addGood(good));
+  },
+  allRemoveFromBasket: (id) => {
+    dispatch(ActionCreator.allRemoveFromBasket(id));
   },
 });
 

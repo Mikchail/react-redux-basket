@@ -1,7 +1,7 @@
 import React from 'react';
 import './basket.scss';
 const Basket = (props) => {
-  const {basket,addToBasket,removeFromBasket} = props;
+  const {basket,addToBasket,removeFromBasket,allRemoveFromBasket} = props;
   return (
     <div className="container">
       <ul className="basket-list">
@@ -26,6 +26,7 @@ const Basket = (props) => {
                   <p className="basket-list__count">{good.count}</p>
                   <button className="basket-list__btn-plus" onClick={()=>addToBasket(good.id)}>+</button>
                 </div>
+                <button onClick={()=>allRemoveFromBasket(good.id)}>delete</button>
               </li>
             );
           })
