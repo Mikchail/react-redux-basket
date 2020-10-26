@@ -9,13 +9,14 @@ import Singin from '../signin/signin';
 import Basket from '../basket/basket';
 import Shop from '../shop/shop';
 import PrivateRoute from '../privite-router/privite-router';
+import AddGood from '../add-good/add-good';
 import withValue from '../../hocs/with-value/with-value';
 
 const SinginWithValue = withValue(Singin);
 
 import './app.scss';
 const App = (props) => {
-  const {basket, addToBasket, removeFromBasket} = props;
+  const {basket, addToBasket, removeFromBasket,addGood} = props;
   return (
     <div className="wrapper">
       <BrowserRouter>
@@ -23,6 +24,9 @@ const App = (props) => {
           <div className="container">
             <Link to="/">
               <h2>Header</h2>
+            </Link>
+            <Link to="/addgood">
+              <h2>addgood</h2>
             </Link>
             <Link to="/basket">{basket.length}</Link>
           </div>
@@ -52,6 +56,12 @@ const App = (props) => {
                 );
               }}
             />
+            <PrivateRoute
+              path="/addgood"
+              render={(routerProps) => {
+                return <AddGood addGood={addGood} />;
+              }}
+            />
             <Route path="/singin">
               <SinginWithValue />
             </Route>
@@ -76,6 +86,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   removeFromBasket: (id) => {
     dispatch(ActionCreator.removeFromBasket(id));
+  },
+  addGood: (good) => {
+    dispatch(ActionCreator.addGood(good));
   },
 });
 
