@@ -1,20 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Card from '../card/card';
+import {connect} from 'react-redux';
+
 import {getGoods, getIsLoading} from '../../store/data/selector';
 import {ActionCreator} from '../../store/data/reducer';
-import {connect} from 'react-redux';
+
+import Loading from '../loading/loading';
+import Card from '../card/card';
+
 import './shop.scss';
 const Shop = (props) => {
-  const {isLoading, goods,addToBasket} = props;
+  const {isLoading, goods, addToBasket} = props;
   console.log(isLoading);
+
+  if(!isLoading){
+    return <Loading/>
+  }
   return (
     <ul className="card-list">
-      {isLoading &&
-        goods &&
-        goods.map((good) => {
-          return <Card good={good} key={good.id} addToBasket={addToBasket} />;
-        })}
+      {goods.map((good) => {
+        return <Card good={good} key={good.id} addToBasket={addToBasket} />;
+      })}
     </ul>
   );
 };
@@ -24,12 +30,12 @@ const mapStateToProps = (state) => ({
   isLoading: getIsLoading(state),
 });
 const mapDispatchToProps = (dispatch) => ({
-  addToBasket: (id)=>{
-    dispatch(ActionCreator.addToBasket(id))
-  }
-})
+  addToBasket: (id) => {
+    dispatch(ActionCreator.addToBasket(id));
+  },
+});
 Shop.propTypes = {
   isLoading: PropTypes.bool,
   goods: PropTypes.array,
 };
-export default connect(mapStateToProps,mapDispatchToProps)(Shop);
+export default connect(mapStateToProps, mapDispatchToProps)(Shop);

@@ -18,39 +18,31 @@ const ActionCreator = {
     type: ActionType.LOAD_GOODS,
     payload: goods,
   }),
-  addToBasket: (good) => ({
+  addToBasket: (id) => ({
     type: ActionType.ADD_TO_BASKET,
-    payload: good,
+    payload: id,
+  }),
+  removeFromBasket: (id) => ({
+    type: ActionType.REMOVE_FROM_BASKET,
+    payload: id,
   }),
 };
-function addBasket(state, good, count) {
-  const index = state.basket.findIndex((card) => {
-    return card.id === good.id;
-  });
-  if (index === -1) {
-    good.count = 1;
-    return extend(state, {
-      basket: state.basket.slice().concat([good]),
-    });
-  }
-  good.count += count;
-  return extend(state, {
-    basket: state.basket.slice().concat([good]),
-  });
-}
+
 function updateBasketItems(basket, item, index) {
   if (index === -1) {
     return basket.slice().concat([item]);
   }
-  const newArray = basket.slice(0, index).concat([item], basket.slice(index + 1));
-  console.log(newArray)
+  const newArray = basket
+    .slice(0, index)
+    .concat([item], basket.slice(index + 1));
   return newArray;
 }
-function updateBasketItem(item, itemInBasket) {
+
+function updateBasketItem(item, itemInBasket, amount) {
   if (itemInBasket) {
     return {
       ...itemInBasket,
-      count: itemInBasket.count + 1,
+      count: itemInBasket.count + amount,
       price: item.price,
       total: itemInBasket.total + item.price,
     };
@@ -61,6 +53,16 @@ function updateBasketItem(item, itemInBasket) {
     total: item.price,
   };
 }
+
+function updateBasket(state, id, amount) {
+  const item = state.goods.find((good) => good.id === id);
+  const index = state.basket.findIndex((b) => b.id === item.id);
+  const itemInBasket = state.basket[index];
+  const newItem = updateBasketItem(item, itemInBasket, amount);
+  return extend(state, {
+    basket: updateBasketItems(state.basket, newItem, index),
+  });
+}
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.GET_GOODS:
@@ -68,19 +70,9 @@ const reducer = (state = initialState, action) => {
     case ActionType.LOAD_GOODS:
       return extend(state, {goods: action.payload, isLoading: true});
     case ActionType.REMOVE_FROM_BASKET:
-      return extend(state, {
-        user: action.payload,
-      });
+      return updateBasket(state, action.payload, -1);
     case ActionType.ADD_TO_BASKET:
-      const id = action.payload;
-      const item = state.goods.find((good) => good.id === id);
-      const index = state.basket.findIndex((b) => b.id === item.id);
-      const itemInBasket = state.basket[index];
-      const newItem = updateBasketItem(item, itemInBasket);
-      console.log(index,itemInBasket);
-      return extend(state, {
-        basket: updateBasketItems(state.basket, newItem, index),
-      });
+      return updateBasket(state, action.payload, +1);
     default:
       return state;
   }

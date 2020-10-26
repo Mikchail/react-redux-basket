@@ -1,14 +1,18 @@
 import React from 'react';
-import Singin from '../signin/signin';
-import Basket from '../basket/basket';
 import {BrowserRouter, Switch, Route, Link} from 'react-router-dom';
 import {connect} from 'react-redux';
+
 import {getBasket} from '../../store/data/selector';
+import {ActionCreator} from '../../store/data/reducer'
+
+import Singin from '../signin/signin';
+import Basket from '../basket/basket';
 import Shop from '../shop/shop';
+
 
 import './app.scss';
 const App = (props) => {
-  const {basket} = props;
+  const {basket,addToBasket,removeFromBasket} = props;
   return (
     <div className="wrapper">
       <BrowserRouter>
@@ -32,10 +36,10 @@ const App = (props) => {
               }}
             />
             <Route path="/basket">
-              <Basket basket={basket} />
+              <Basket basket={basket} addToBasket={addToBasket} removeFromBasket={removeFromBasket} />
             </Route>
             <Route path="/singin">
-              <Singin />
+              <Singin  />
             </Route>
           </Switch>
         </main>
@@ -51,4 +55,12 @@ const App = (props) => {
 const mapStateToProps = (state) => ({
   basket: getBasket(state),
 });
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = (dispatch) => ({
+  addToBasket: (id)=>{
+    dispatch(ActionCreator.addToBasket(id))
+  },
+  removeFromBasket: (id)=>{
+    dispatch(ActionCreator.removeFromBasket(id))
+  },
+});
+export default connect(mapStateToProps,mapDispatchToProps)(App);

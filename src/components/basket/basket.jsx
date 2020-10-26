@@ -1,7 +1,7 @@
 import React from 'react';
 import './basket.scss';
 const Basket = (props) => {
-  const {basket} = props;
+  const {basket,addToBasket,removeFromBasket} = props;
   return (
     <div className="container">
       <ul className="basket-list">
@@ -20,10 +20,11 @@ const Basket = (props) => {
                 />
                 <p className="basket-list__quantity">in shop: {quantity}</p>
                 <p className="basket-list__price">cosnt: {price}</p>
+                <p className="basket-list__price">total: {good.total}</p>
                 <div className="basket-list__item-wr">
-                  <button className="basket-list__btn-minus">-</button>
+                  <button className="basket-list__btn-minus" onClick={()=>removeFromBasket(good.id)}>-</button>
                   <p className="basket-list__count">{good.count}</p>
-                  <button className="basket-list__btn-plus">+</button>
+                  <button className="basket-list__btn-plus" onClick={()=>addToBasket(good.id)}>+</button>
                 </div>
               </li>
             );
