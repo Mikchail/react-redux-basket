@@ -14,9 +14,9 @@ const Card = (props) => {
         src={`${img}`}
         alt={`${name}`}
       />
-      <p className="card__quantity">{quantity}</p>
-      <p className="card__price">{price}</p>
-      <button className="card__button" onClick={()=>addToBasket(good.id)}>Добавить в корзину</button>
+      <p className="card__quantity"><span className="span">Quantity: </span>{quantity}</p>
+      <p className="card__price"><span className="span">Price: </span>{price}</p>
+      <button className="button card__button" onClick={()=>addToBasket(good.id)}>Добавить в корзину</button>
     </li>
   );
 };

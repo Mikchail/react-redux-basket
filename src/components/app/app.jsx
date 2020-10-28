@@ -2,10 +2,12 @@ import React from 'react';
 import {BrowserRouter, Switch, Route, Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-import {getBasket,getTotalSum} from '../../store/data/selector';
+import {getBasket, getTotalSum} from '../../store/data/selector';
 import {ActionCreator} from '../../store/data/reducer';
 
 import Singin from '../signin/signin';
+import Header from '../header/header';
+import Footer from '../footer/footer';
 import Basket from '../basket/basket';
 import Shop from '../shop/shop';
 import PrivateRoute from '../privite-router/privite-router';
@@ -27,17 +29,7 @@ const App = (props) => {
   return (
     <div className="wrapper">
       <BrowserRouter>
-        <header className="header">
-          <div className="container">
-            <Link to="/">
-              <h2>Header</h2>
-            </Link>
-            <Link to="/addgood">
-              <h2>addgood</h2>
-            </Link>
-            <Link to="/basket">{basket.length}</Link>
-          </div>
-        </header>
+        <Header basket={basket} />
         <main className="main">
           <Switch>
             <PrivateRoute
@@ -71,16 +63,17 @@ const App = (props) => {
                 return <AddGood addGood={addGood} />;
               }}
             />
-            <Route path="/singin">
-              <SinginWithValue />
-            </Route>
+            <Route
+              path="/singin"
+              exact
+              render={(routerProps) => {
+                return <SinginWithValue history={routerProps.history} />;
+              }}
+            />
           </Switch>
         </main>
-        <footer className="footer">
-          <div className="container">
-            <h1>footer</h1>
-          </div>
-        </footer>
+        <Footer/>
+       
       </BrowserRouter>
     </div>
   );

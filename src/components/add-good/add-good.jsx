@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
+
 import {apiService as api} from '../../api';
+import './add-good.scss';
 const imgDedault = 'http://pngimg.com/uploads/guitar/guitar_PNG3341.png';
 // 'https://icon-library.com/images/no-image-icon/no-image-icon-1.jpg';
 
@@ -28,34 +30,36 @@ const AddGood = (props) => {
     }
   };
   return (
-    <div className="container">
-      <form onSubmit={handlerSubmit}>
-        <label htmlFor="">
-          <span>Title</span>
-          <input
-            type="text"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-          />
-        </label>
-        <label htmlFor="">
-          <span>Price</span>
-          <input
-            type="text"
-            value={price}
-            onChange={(event) => setPrice(event.target.value)}
-          />
-        </label>
-        <label htmlFor="">
-          <span>Quantity</span>
-          <input
-            type="text"
-            value={quantity}
-            onChange={(event) => setQuantity(event.target.value)}
-          />
-        </label>
-        <button type="submit">Submit</button>
-      </form>
+    <div className="add-good">
+      <div className="container">
+        <form className="add-good__form" onSubmit={handlerSubmit}>
+          <label htmlFor="">
+            <span className="span">Title: </span>
+            <input
+              type="text"
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+            />
+          </label>
+          <label htmlFor="">
+            <span className="span">Price:</span>
+            <input
+              type="text"
+              value={price}
+              onChange={(event) => setPrice(event.target.value)}
+            />
+          </label>
+          <label htmlFor="">
+            <span className="span">Quantity: </span>
+            <input
+              type="text"
+              value={quantity}
+              onChange={(event) => setQuantity(event.target.value)}
+            />
+          </label>
+          <button className="button" type="submit">Submit</button>
+        </form>
+      </div>
     </div>
   );
 };

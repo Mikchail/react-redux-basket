@@ -7,7 +7,7 @@ const withValue = (Component) => {
     const [value, setValue] = useState('');
 
     return (
-      <Component value={value} changeValue={setValue} addUser={props.addUser}>
+      <Component {...props} value={value} changeValue={setValue} addUser={props.addUser}>
         {props.children}
       </Component>
     );

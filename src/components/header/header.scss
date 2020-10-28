@@ -1,0 +1,76 @@
+@import '../../conf';
+
+
+.header{
+
+}
+nav{
+  display: flex;
+}
+.main-menu{
+  display: inline-flex;
+  align-items: center;
+  margin-left: auto;
+  &__item{
+    position: relative;
+    &:not(:last-child){
+      margin-right: 40px;
+    }
+    a{
+      transition: color $animate-time;
+      display: block;
+    }
+    
+    &:hover{
+      a{
+        color:$button_active;
+      }
+    }
+    &:active{
+      a{
+        color:$button_active;
+      }
+    }
+  }
+
+  &__item--basket{
+      padding: 5px;
+      border-radius: 5px;
+     a{
+      display: flex;
+     }
+
+      .span{
+        display: none;
+        color: $black;
+        font-weight: bold;
+        margin-left: 10px;
+      }
+      path{
+        transition: fill $animate-time;
+      }
+      &:hover{
+        path{
+          fill:$button_active;
+        }
+      }
+      &.active{
+
+        background-color: $white;
+        .span{
+          display: block;
+        }
+        path{
+          fill: $black;
+        }
+       
+      }
+
+      &:hover{
+        path{
+          fill:$button_active;
+        }
+      }
+
+  }
+}

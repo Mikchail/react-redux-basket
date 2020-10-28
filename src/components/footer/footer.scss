@@ -1,0 +1,17 @@
+@import '../../conf';
+
+
+.footer{
+  .container{
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    line-height: 35px;
+    color: $white;
+    @media (mix-width: $media768) {
+      font-size: 45px;
+      line-height: 55px;
+    }
+    
+  }
+}

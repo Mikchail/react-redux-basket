@@ -32,3 +32,43 @@ ul,li{
     padding: 0 40px;
   }
 }
+
+a{
+  text-decoration: none;
+  color: $white;
+}
+
+button{
+  border: none;
+  background-color: transparent;
+}
+
+.button{
+  padding: 15px;
+  border-radius: 12px;
+  max-width: 250px;
+  width: 100%;
+  background-color: $button;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: $white;
+  cursor: pointer;
+  transition: background-color $animate_time;
+
+  &:hover{
+    background-color: $button_hover;
+  }
+  &:active{
+    background-color: $button_active;
+  }
+}
+
+.label{
+  display: block;
+}
+.input{
+  padding: 7px;
+  border-radius: 12px;
+}
