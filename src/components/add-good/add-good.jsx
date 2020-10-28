@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import {apiService as api} from '../../api';
-const imgDedault =
-  'https://icon-library.com/images/no-image-icon/no-image-icon-1.jpg';
+const imgDedault = 'http://pngimg.com/uploads/guitar/guitar_PNG3341.png';
+// 'https://icon-library.com/images/no-image-icon/no-image-icon-1.jpg';
+
 const AddGood = (props) => {
   const {addGood} = props;
 
@@ -15,15 +16,15 @@ const AddGood = (props) => {
       const newGood = {
         id,
         name,
-        price:+price,
+        price: +price,
         quantity: +quantity,
         img: imgDedault,
       };
-      api.post(newGood)
+      api.post(newGood);
       addGood(newGood);
-      setName('')
-      setPrice('')
-      setQuantity('')
+      setName('');
+      setPrice('');
+      setQuantity('');
     }
   };
   return (
