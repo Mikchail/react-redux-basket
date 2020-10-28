@@ -1,5 +1,5 @@
 import {extend} from '../../utils';
-
+import {apiService as api} from '../../api'
 const ActionType = {
   GET_GOODS: `GET_GOODS`,
   ADD_GOODS: `ADD_GOODS`,
@@ -38,11 +38,27 @@ const ActionCreator = {
   }),
 };
 
+
+export const Operations = {
+  loadFilms: () => (dispatch, getState, api) => {
+    return api.get()
+      .then((responce) => {
+        let newGoods = Object.values(responce).map((it) => it)
+        dispatch(ActionCreator.loadGoods(newGoods));
+
+      })
+      .catch((err) => {
+        // dispatch(ActionCreator.serverError(err));
+      });
+  },
+}
+
 function updateBasketItems(basket, item, index) {
   if (item.count === 0) {
     const newArray = basket.slice(0, index).concat(basket.slice(index + 1));
     return newArray;
   }
+
   if (index === -1) {
     return basket.slice().concat([item]);
   }
@@ -62,6 +78,7 @@ function updateBasketItem(item, itemInBasket, amount) {
       total: itemInBasket.total + item.price * amount,
     };
   }
+
   return {
     ...item,
     count: 1,
@@ -74,16 +91,21 @@ function updateBasket(state, id, amount) {
   const index = state.basket.findIndex((b) => b.id === item.id);
   const itemInBasket = state.basket[index];
   const newItem = updateBasketItem(item, itemInBasket, amount);
+  
+  if(amount > 0 && itemInBasket && itemInBasket.count >= newItem.quantity){
+    return state;
+  }
   return extend(state, {
     basket: updateBasketItems(state.basket, newItem, index),
   });
 }
 const reducer = (state = initialState, action) => {
+  console.log(state)
   switch (action.type) {
     case ActionType.ADD_GOODS:
       return extend(state, {goods: [...state.goods, action.payload]});
     case ActionType.LOAD_GOODS:
-      return extend(state, {goods: action.payload, isLoading: true});
+      return extend(state, {goods: [...state.goods, ...action.payload], isLoading: true});
     case ActionType.REMOVE_FROM_BASKET:
       return updateBasket(state, action.payload, -1);
     case ActionType.ADD_TO_BASKET:

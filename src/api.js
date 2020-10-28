@@ -4,7 +4,10 @@ class ApiService {
     this.url = baseUrl;
   }
 
-  createPost(post) {
+
+
+
+  post(post) {
     try {
       const request = new Request(this.url + '/goods.json', {
         method: 'post',
@@ -17,7 +20,7 @@ class ApiService {
     }
 
   }
-  fetchPosts() {
+  get() {
     try {
       const request = new Request(this.url + '/goods.json', {
         method: 'get'

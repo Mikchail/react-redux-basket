@@ -19,7 +19,7 @@ const AddGood = (props) => {
         quantity: +quantity,
         img: imgDedault,
       };
-      api.createPost(newGood)
+      api.post(newGood)
       addGood(newGood);
       setName('')
       setPrice('')

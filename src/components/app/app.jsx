@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter, Switch, Route, Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-import {getBasket} from '../../store/data/selector';
+import {getBasket,getTotalSum} from '../../store/data/selector';
 import {ActionCreator} from '../../store/data/reducer';
 
 import Singin from '../signin/signin';
@@ -16,7 +16,14 @@ const SinginWithValue = withValue(Singin);
 
 import './app.scss';
 const App = (props) => {
-  const {basket, addToBasket, removeFromBasket,addGood,allRemoveFromBasket} = props;
+  const {
+    basket,
+    addToBasket,
+    removeFromBasket,
+    addGood,
+    allRemoveFromBasket,
+    totalSum,
+  } = props;
   return (
     <div className="wrapper">
       <BrowserRouter>
@@ -50,6 +57,7 @@ const App = (props) => {
                 return (
                   <Basket
                     basket={basket}
+                    totalSum={totalSum}
                     allRemoveFromBasket={allRemoveFromBasket}
                     addToBasket={addToBasket}
                     removeFromBasket={removeFromBasket}
@@ -80,6 +88,7 @@ const App = (props) => {
 
 const mapStateToProps = (state) => ({
   basket: getBasket(state),
+  totalSum: getTotalSum(state),
 });
 const mapDispatchToProps = (dispatch) => ({
   addToBasket: (id) => {

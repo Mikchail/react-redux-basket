@@ -6,15 +6,13 @@ const getIsLoading = (state) => {
 const getBasket = (state) => {
   return state[NameSpace.DATA].basket;
 };
-
+const getTotalSum = (state) => {
+  const basket = getBasket(state);
+  let total = basket.reduce((acc,it) =>acc + it.total,0);
+  return total
+};
 const getGoods = (state) => {
   return state[NameSpace.DATA].goods;
 };
-const getTags = (state) => {
-  const films = state[NameSpace.DATA].films;
-  const tags = films.map((f) => {
-     return f.genre;
-  });
-  return [...new Set(tags)]
-};
-export {getIsLoading, getGoods, getTags,getBasket};
+
+export {getIsLoading,getTotalSum, getGoods, getBasket};

@@ -12,7 +12,6 @@ import './shop.scss';
 
 const Shop = (props) => {
   const {isLoading, goods, addToBasket} = props;
-  console.log(isLoading);
 
   if(!isLoading){
     return <Loading/>
