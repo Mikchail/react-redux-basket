@@ -11,14 +11,14 @@ const Signin = (props) => {
   const handlerChange = (event) => {
     event.preventDefault();
     changeValue(event.target.value);
-    
+
   };
 
   setTimeout(()=>{
     addUser('2222');
     history.push('/');
   },10)
-  
+
   return (
     <div className="popup-wrapper">
       <div className="container">

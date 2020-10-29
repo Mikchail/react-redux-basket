@@ -38,7 +38,7 @@ const App = (props) => {
               render={(routerProps) => {
                 return (
                   <div className="container">
-                    <Shop history={routerProps.history} />
+                    <Shop history={routerProps.history} basket={basket}/>
                   </div>
                 );
               }}
@@ -60,7 +60,7 @@ const App = (props) => {
             <PrivateRoute
               path="/addgood"
               render={(routerProps) => {
-                return <AddGood addGood={addGood} />;
+                return <AddGood addGood={addGood} history={routerProps.history} />;
               }}
             />
             <Route
@@ -73,7 +73,7 @@ const App = (props) => {
           </Switch>
         </main>
         <Footer/>
-       
+
       </BrowserRouter>
     </div>
   );

@@ -11,7 +11,6 @@ const Basket = (props) => {
             const {img, price, quantity, name, id,total,count} = good;
             return (
               <li className="basket-list__item" key={id}>
-                <h4 className="basket-list__title">{name}</h4>
                 <img
                   className="basket-list__img"
                   width="100"
@@ -19,15 +18,19 @@ const Basket = (props) => {
                   src={`${img}`}
                   alt={`${name}`}
                 />
-                <p className="basket-list__quantity">in shop: {quantity}</p>
-                <p className="basket-list__price">cosnt: {price}</p>
-                <p className="basket-list__price">total: {total}</p>
-                <div className="basket-list__item-wr">
-                  <button className="basket-list__btn-minus" onClick={()=>removeFromBasket(id)}>-</button>
-                  <p className="basket-list__count">{count}</p>
-                  <button className="basket-list__btn-plus" onClick={()=>addToBasket(id)}>+</button>
+                <div className="basket-list__item-inner-wr">
+                  <h4 className="basket-list__title">{name}</h4>
+                  <p className="basket-list__quantity">in shop: {quantity}</p>
+                  <p className="basket-list__price">cosnt: {price}</p>
+                  <p className="basket-list__price">total: {total}</p>
                 </div>
-                <button onClick={()=>allRemoveFromBasket(id)}>delete</button>
+
+                <div className="basket-list__item-wr">
+                  <button className="button basket-list__btn-minus" onClick={()=>removeFromBasket(id)}>-</button>
+                    <span className="basket-list__count">{count}</span>
+                  <button className="button basket-list__btn-plus" onClick={()=>addToBasket(id)}>+</button>
+                </div>
+                <button className="button" onClick={()=>allRemoveFromBasket(id)}>delete</button>
               </li>
             );
           })

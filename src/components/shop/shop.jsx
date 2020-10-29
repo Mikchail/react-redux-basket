@@ -11,15 +11,16 @@ import Card from '../card/card';
 import './shop.scss';
 
 const Shop = (props) => {
-  const {isLoading, goods, addToBasket} = props;
+  const {isLoading, goods, addToBasket, basket} = props;
 
-  if(!isLoading){
-    return <Loading/>
+  if (!isLoading) {
+    return <Loading />;
   }
   return (
     <ul className="card-list">
       {goods.map((good) => {
-        return <Card good={good} key={good.id} addToBasket={addToBasket} />;
+        const hasInBasket = basket.find((it) => it.id === good.id);
+        return <Card good={good} hasInBasket={hasInBasket} key={good.id} addToBasket={addToBasket} />;
       })}
     </ul>
   );

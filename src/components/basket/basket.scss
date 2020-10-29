@@ -6,9 +6,12 @@
 
   &__item {
     display: flex;
+    padding: 25px;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
   }
 
   // .basket-list__title
@@ -16,7 +19,7 @@
   &__title {
   }
   &__count{
-    
+
     padding: 0 10px;
   }
   // .basket-list__img

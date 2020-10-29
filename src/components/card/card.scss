@@ -26,12 +26,13 @@
     font-weight: bold;
   }
   &__title{
+    margin-bottom: 15px;
     font-size: 20px;
   }
   &__quantity{
     margin-top: 10px;
     margin-bottom: 5px;
-  } 
+  }
   &__img{
     object-fit: contain;
   }
@@ -39,6 +40,14 @@
 
   }
   &__button{
+
+    &.disabled{
+      cursor: auto;
+      background-color: grey;
+      &:hover{
+        background-color: grey;
+      }
+    }
     margin-top: 5px;
   }
 }
