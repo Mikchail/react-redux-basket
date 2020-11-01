@@ -10,7 +10,6 @@ const acoustic = 'http://pngimg.com/uploads/guitar/guitar_PNG3351.png';
 
 const AddGood = (props) => {
   const {addGood,history} = props;
-
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [quantity, setQuantity] = useState('');

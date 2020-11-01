@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import './header.scss';
 
 const Header = (props) => {
-  const {basket} = props;
+  const {basketLength} = props;
   return (
     <header className="header">
       <div className="container">
@@ -17,7 +17,7 @@ const Header = (props) => {
             </li>
             <li
               className={`main-menu__item main-menu__item--basket ${
-                basket.length ? ' active' : ''
+                basketLength ? ' active' : ''
               }`}
             >
               <Link to="/basket">
@@ -37,7 +37,7 @@ const Header = (props) => {
                   />
                 </svg>
 
-                <span className="span">{basket.length}</span>
+                <span className="span">{basketLength}</span>
               </Link>
             </li>
           </ul>
@@ -46,5 +46,7 @@ const Header = (props) => {
     </header>
   );
 };
-
-export default Header;
+// const mapStateToProps = (state) => ({
+//   basket: getBasketSelect(state),
+// });
+export default React.memo(Header);

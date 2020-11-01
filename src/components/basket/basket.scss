@@ -1,3 +1,5 @@
+
+@import '../../conf';
 .basket-list {
   display: flex;
   flex-direction: column;
@@ -6,6 +8,7 @@
 
   &__item {
     display: flex;
+    margin: 10px  0;
     padding: 25px;
     justify-content: space-between;
     align-items: center;
@@ -17,6 +20,7 @@
   // .basket-list__title
 
   &__title {
+
   }
   &__count{
 
@@ -49,10 +53,63 @@
   // .basket-list__btn-plus
 
   &__btn-plus {
+   
+    &.button{
+      padding: 5px;
+      border-radius: 3px;
+      line-height: 16px;
+    }
   }
 
   // .basket-list__btn-minus
+  &__button{
+   align-self: start;
+    &.button{
+      background-color: transparent;
+      max-width: 40px;
+      padding: 5px;
+      border-radius: 3px;
+      line-height: 16px;
 
-  &__btn-minus {
+      path{
+        fill: $button
+      }
+      &:hover{
+        background-color: transparent;
+        path{
+          fill: $button_hover
+        }
+      }
+      &:active{
+        background-color: transparent;
+        path{
+          fill: $button_active
+        }
+      }
+    }
   }
+  &__btn-minus {
+    &.button{
+      padding: 5px;
+      border-radius: 3px;
+      line-height: 16px;
+    }
+  }
+  
+}
+
+.basket-empty{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 45px;
+  line-height: 55px;
+}
+
+.basket-total-sum{
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 28px;
+  text-align: right;
 }

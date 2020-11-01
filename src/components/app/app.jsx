@@ -1,8 +1,8 @@
 import React from 'react';
-import {BrowserRouter, Switch, Route, Link} from 'react-router-dom';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-import {getBasket, getTotalSum} from '../../store/data/selector';
+import {getBasket, getTotalSum,getBasketSelectLength} from '../../store/data/selector';
 import {ActionCreator} from '../../store/data/reducer';
 
 import Singin from '../signin/signin';
@@ -25,11 +25,12 @@ const App = (props) => {
     addGood,
     allRemoveFromBasket,
     totalSum,
+    basketLength
   } = props;
   return (
     <div className="wrapper">
       <BrowserRouter>
-        <Header basket={basket} />
+        <Header basketLength={basketLength} />
         <main className="main">
           <Switch>
             <PrivateRoute
@@ -81,6 +82,7 @@ const App = (props) => {
 
 const mapStateToProps = (state) => ({
   basket: getBasket(state),
+  basketLength: getBasketSelectLength(state),
   totalSum: getTotalSum(state),
 });
 const mapDispatchToProps = (dispatch) => ({
