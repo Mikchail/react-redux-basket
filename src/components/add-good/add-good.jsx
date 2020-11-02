@@ -14,7 +14,6 @@ const AddGood = (props) => {
   const [price, setPrice] = useState('');
   const [quantity, setQuantity] = useState('');
   const [img, setImg] = useState('');
-  console.log(history)
   const handlerSubmit = (event) => {
     event.preventDefault();
 

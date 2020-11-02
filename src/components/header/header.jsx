@@ -10,17 +10,17 @@ const Header = (props) => {
         <nav>
           <ul className="main-menu">
             <li className="main-menu__item">
-              <Link to="/">Shop</Link>
+              <Link to="/" tabIndex="0">Shop</Link>
             </li>
             <li className="main-menu__item">
-              <Link to="/addgood">Add good</Link>
+              <Link to="/addgood" tabIndex="0">Add good</Link>
             </li>
             <li
               className={`main-menu__item main-menu__item--basket ${
                 basketLength ? ' active' : ''
               }`}
             >
-              <Link to="/basket">
+              <Link to="/basket" tabIndex="0">
                 <svg
                   width="25"
                   height="27"

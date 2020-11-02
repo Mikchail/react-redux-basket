@@ -71,7 +71,7 @@ function updateBasketItems(basket, item, index) {
   }
 
   if (index === -1) {
-    return basket.slice().concat([item]);
+    return [].concat([item]).concat(basket.slice());
   }
 
   const newArray = basket

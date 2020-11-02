@@ -59,10 +59,14 @@ button{
   letter-spacing: 1px;
   color: $white;
   cursor: pointer;
+  border: 3px solid transparent;
+  outline: none;
   transition: background-color $animate_time;
-
   &:hover{
     background-color: $button_hover;
+  }
+  &:focus{
+    border: 3px solid rgb(69, 69, 243); 
   }
   &:active{
     background-color: $button_active;

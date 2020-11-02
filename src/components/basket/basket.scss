@@ -7,10 +7,12 @@
   // .basket-list__item
 
   &__item {
+    position: relative;
     display: flex;
+    flex-wrap: wrap;
     margin: 10px  0;
     padding: 25px;
-    justify-content: space-between;
+    // justify-content: space-between;
     align-items: center;
     width: 100%;
     background: rgb(255, 255, 255);
@@ -23,7 +25,9 @@
 
   }
   &__count{
-
+    display: inline-block;
+    text-align: center;
+    min-width: 40px;
     padding: 0 10px;
   }
   // .basket-list__img
@@ -44,26 +48,41 @@
 
   // .basket-list__item-wr
 
+  &__item-inner-wr{
+    margin-left: 18%;
+  }
+
   &__item-wr {
     display: flex;
     align-content: center;
     align-items: center;
+    margin-left: 18%;
   }
 
   // .basket-list__btn-plus
 
-  &__btn-plus {
+  &__btn-plus, &__btn-minus {
    
     &.button{
+      width: 27px;
+      height: 27px;
       padding: 5px;
+      font-weight: bold;
       border-radius: 3px;
-      line-height: 16px;
+      line-height: 13px;
     }
   }
-
+  &__btn-minus {
+  
+  }
   // .basket-list__btn-minus
   &__button{
-   align-self: start;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    align-self: start;
+    margin-left: 15%;
+
     &.button{
       background-color: transparent;
       max-width: 40px;
@@ -88,13 +107,7 @@
       }
     }
   }
-  &__btn-minus {
-    &.button{
-      padding: 5px;
-      border-radius: 3px;
-      line-height: 16px;
-    }
-  }
+ 
   
 }
 

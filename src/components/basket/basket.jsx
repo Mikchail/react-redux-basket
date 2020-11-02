@@ -28,9 +28,9 @@ const Basket = (props) => {
                 />
                 <div className="basket-list__item-inner-wr">
                   <h4 className="basket-list__title">{name}</h4>
-                  <p className="basket-list__quantity">in shop: {quantity}</p>
-                  <p className="basket-list__price">cosnt: {price}</p>
-                  <p className="basket-list__price">total: {total}</p>
+                  <p className="basket-list__quantity"><span className="span">in shop: </span>{quantity}</p>
+                  <p className="basket-list__price"><span className="span">cosnt: </span>{price}</p>
+                  <p className="basket-list__price"><span className="span">total: </span>{total}</p>
                 </div>
 
                 <div className="basket-list__item-wr">
