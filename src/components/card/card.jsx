@@ -2,12 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './card.scss';
 const Card = (props) => {
-  const {addToBasket,good,hasInBasket} = props
+  const {addToBasket, good, hasInBasket} = props;
   const {img, price, quantity, name, id} = good;
 
-  const button = !hasInBasket ? <button className="button card__button" onClick={()=>addToBasket(id)}>Add to basket</button> :
-  <button className="button card__button disabled" disabled >Added</button>
-  console.log(button)
+  const button = !hasInBasket ? (
+    <button className="button card__button" onClick={() => addToBasket(id)}>
+      Add to basket
+    </button>
+  ) : (
+    <button className="button card__button disabled" disabled>
+      Added
+    </button>
+  );
   return (
     <li className="card">
       <h4 className="card__title">{name}</h4>
@@ -18,8 +24,14 @@ const Card = (props) => {
         src={`${img}`}
         alt={`${name}`}
       />
-      <p className="card__quantity"><span className="span">Quantity: </span>{quantity}</p>
-      <p className="card__price"><span className="span">Price: </span>{price}</p>
+      <p className="card__quantity">
+        <span className="span">Quantity: </span>
+        {quantity}
+      </p>
+      <p className="card__price">
+        <span className="span">Price: </span>
+        {price}
+      </p>
       {button}
     </li>
   );
