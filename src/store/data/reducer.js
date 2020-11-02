@@ -1,16 +1,19 @@
 import {extend} from '../../utils';
-import {apiService as api} from '../../api'
+import {apiService as api} from '../../api';
 const ActionType = {
   GET_GOODS: `GET_GOODS`,
   ADD_GOODS: `ADD_GOODS`,
   LOAD_GOODS: `LOAD_GOODS`,
+  IS_LOADING_GOODS: `IS_LOADING_GOODS`,
+  LOAD_GOODS_ERROR: `LOAD_GOODS_ERROR`,
   ADD_TO_BASKET: `ADD_TO_BASKET`,
   REMOVE_FROM_BASKET: `REMOVE_FROM_BASKET`,
   ALL_GOODS_REMOVED_FROM_CART: `ALL_GOODS_REMOVED_FROM_CART`,
 };
 const initialState = {
   goods: [],
-  isLoading: false,
+  isLoading: true,
+  isLoadingError: false,
   basket: [],
   totalCount: 0,
 };
@@ -19,6 +22,14 @@ const ActionCreator = {
   loadGoods: (goods) => ({
     type: ActionType.LOAD_GOODS,
     payload: goods,
+  }),
+  loadGoodsError: (flag) => ({
+    type: ActionType.LOAD_GOODS_ERROR,
+    payload: flag,
+  }),
+  isLoadingGoods: (flag) => ({
+    type: ActionType.IS_LOADING_GOODS,
+    payload: flag,
   }),
   addGood: (id) => ({
     type: ActionType.ADD_GOODS,
@@ -38,20 +49,20 @@ const ActionCreator = {
   }),
 };
 
-
-export const Operations = {
+const Operations = {
   loadFilms: () => (dispatch, getState, api) => {
-    return api.get()
+    return api
+      .get()
       .then((responce) => {
-        let newGoods = Object.values(responce).map((it) => it)
+        let newGoods = Object.values(responce).map((it) => it);
         dispatch(ActionCreator.loadGoods(newGoods));
-
+        dispatch(ActionCreator.isLoadingGoods(false));
       })
       .catch((err) => {
-        // dispatch(ActionCreator.serverError(err));
+        dispatch(ActionCreator.loadGoodsError(true));
       });
   },
-}
+};
 
 function updateBasketItems(basket, item, index) {
   if (item.count === 0) {
@@ -91,8 +102,8 @@ function updateBasket(state, id, amount) {
   const index = state.basket.findIndex((b) => b.id === item.id);
   const itemInBasket = state.basket[index];
   const newItem = updateBasketItem(item, itemInBasket, amount);
-  
-  if(amount > 0 && itemInBasket && itemInBasket.count >= newItem.quantity){
+
+  if (amount > 0 && itemInBasket && itemInBasket.count >= newItem.quantity) {
     return state;
   }
   return extend(state, {
@@ -100,16 +111,25 @@ function updateBasket(state, id, amount) {
   });
 }
 const reducer = (state = initialState, action) => {
-  console.log(state)
   switch (action.type) {
     case ActionType.ADD_GOODS:
       return extend(state, {goods: [...state.goods, action.payload]});
     case ActionType.LOAD_GOODS:
-      return extend(state, {goods: [...state.goods, ...action.payload], isLoading: true});
+      return extend(state, {
+        goods: [...state.goods, ...action.payload],
+      });
+    case ActionType.IS_LOADING_GOODS:
+      return extend(state, {
+        isLoading: action.payload,
+      });
     case ActionType.REMOVE_FROM_BASKET:
       return updateBasket(state, action.payload, -1);
     case ActionType.ADD_TO_BASKET:
       return updateBasket(state, action.payload, +1);
+    case ActionType.LOAD_GOODS_ERROR:
+      return extend(state, {
+        isLoadingError: action.payload,
+      });
     case ActionType.ALL_GOODS_REMOVED_FROM_CART:
       const item = state.basket.find(({id}) => id === action.payload);
       return updateBasket(state, action.payload, -item.count);
@@ -118,4 +138,4 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-export {reducer, ActionCreator};
+export {reducer, ActionCreator, Operations,ActionType};

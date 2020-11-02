@@ -6,7 +6,6 @@ const getIsLoading = (state) => {
 };
 
 const getBasket = (state) => {
-  console.log(state)
   return state[NameSpace.DATA].basket;
 };
 

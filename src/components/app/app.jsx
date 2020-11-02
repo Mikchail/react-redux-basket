@@ -1,10 +1,14 @@
 import React from 'react';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {Router as BrowserRouter, Switch, Route} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-import {getBasket, getTotalSum,getBasketSelectLength} from '../../store/data/selector';
+import {
+  getBasket,
+  getTotalSum,
+  getBasketSelectLength,
+} from '../../store/data/selector';
 import {ActionCreator} from '../../store/data/reducer';
-
+import history from '../../history';
 import Singin from '../signin/signin';
 import Header from '../header/header';
 import Footer from '../footer/footer';
@@ -25,28 +29,28 @@ const App = (props) => {
     addGood,
     allRemoveFromBasket,
     totalSum,
-    basketLength
+    basketLength,
   } = props;
   return (
     <div className="wrapper">
-      <BrowserRouter>
+      <BrowserRouter history={history}>
         <Header basketLength={basketLength} />
         <main className="main">
           <Switch>
             <PrivateRoute
               exact
               path="/"
-              render={(routerProps) => {
+              render={() => {
                 return (
                   <div className="container">
-                    <Shop history={routerProps.history} basket={basket}/>
+                    <Shop history={history} basket={basket} />
                   </div>
                 );
               }}
             />
             <PrivateRoute
               path="/basket"
-              render={(routerProps) => {
+              render={() => {
                 return (
                   <Basket
                     basket={basket}
@@ -60,21 +64,22 @@ const App = (props) => {
             />
             <PrivateRoute
               path="/addgood"
-              render={(routerProps) => {
-                return <AddGood addGood={addGood} history={routerProps.history} />;
+              render={() => {
+                return (
+                  <AddGood addGood={addGood} history={history} />
+                );
               }}
             />
             <Route
               path="/singin"
               exact
-              render={(routerProps) => {
-                return <SinginWithValue history={routerProps.history} />;
+              render={() => {
+                return <SinginWithValue history={history} />;
               }}
             />
           </Switch>
         </main>
-        <Footer/>
-
+        <Footer />
       </BrowserRouter>
     </div>
   );

@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test componet Card Snapshot should be Card 1`] = `
+<li
+  className="card"
+>
+  <h4
+    className="card__title"
+  >
+    Fender
+  </h4>
+  <img
+    alt="Fender"
+    className="card__img"
+    height="400"
+    src="https://img95.699pic.com/element/40135/1104.png_860.png"
+    width="300"
+  />
+  <p
+    className="card__quantity"
+  >
+    <span
+      className="span"
+    >
+      Quantity: 
+    </span>
+    2
+  </p>
+  <p
+    className="card__price"
+  >
+    <span
+      className="span"
+    >
+      Price: 
+    </span>
+    22000
+  </p>
+  <button
+    className="button card__button"
+    onClick={[Function]}
+  >
+    Add to basket
+  </button>
+</li>
+`;

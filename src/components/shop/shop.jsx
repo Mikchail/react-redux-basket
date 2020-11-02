@@ -13,7 +13,7 @@ import './shop.scss';
 const Shop = (props) => {
   const {isLoading, goods, addToBasket, basket} = props;
 
-  if (!isLoading) {
+  if (isLoading) {
     return <Loading />;
   }
   return (

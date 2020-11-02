@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Testing shop component render shop with data 1`] = `
+exports[`Should be loading 1`] = `
 <div
   className="loader"
 >

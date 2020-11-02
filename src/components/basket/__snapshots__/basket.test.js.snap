@@ -1,0 +1,324 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test componet Basket Snapshot should be empty Basket  1`] = `
+<div
+  className="container"
+>
+  <p
+    className="basket-empty"
+  >
+    Empty
+  </p>
+</div>
+`;
+
+exports[`Test componet Basket Snapshot should be with goods Basket  1`] = `
+<div
+  className="container"
+>
+  <ul
+    className="basket-list"
+  >
+    <li
+      className="basket-list__item"
+    >
+      <img
+        alt="Ziplin"
+        className="basket-list__img"
+        height="100"
+        src="http://pngimg.com/uploads/guitar/guitar_PNG3369.png"
+        width="100"
+      />
+      <div
+        className="basket-list__item-inner-wr"
+      >
+        <h4
+          className="basket-list__title"
+        >
+          Ziplin
+        </h4>
+        <p
+          className="basket-list__quantity"
+        >
+          in shop: 
+          10
+        </p>
+        <p
+          className="basket-list__price"
+        >
+          cosnt: 
+          2000
+        </p>
+        <p
+          className="basket-list__price"
+        >
+          total: 
+        </p>
+      </div>
+      <div
+        className="basket-list__item-wr"
+      >
+        <button
+          className="button basket-list__btn-minus"
+          onClick={[Function]}
+        >
+          -
+        </button>
+        <span
+          className="basket-list__count"
+        >
+          1
+        </span>
+        <button
+          className="button basket-list__btn-plus"
+          onClick={[Function]}
+        >
+          +
+        </button>
+      </div>
+      <button
+        className="basket-list__button button"
+        onClick={[Function]}
+      >
+        <svg
+          fill="none"
+          height="23"
+          viewBox="0 0 23 23"
+          width="23"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.4025 22.404C2.60711 23.1986 1.36983 23.1986 0.574442 22.404C0.176748 22.0067 2.21936e-07 21.5211 2.45092e-07 20.9914C2.68249e-07 20.4616 0.176748 19.976 0.574443 19.5787L8.66089 11.5L0.574443 3.42128C0.176749 3.02397 1.0517e-06 2.53839 1.07485e-06 2.00864C1.09801e-06 1.47889 0.176749 0.993303 0.574443 0.59599C1.36983 -0.198636 2.60712 -0.198636 3.4025 0.59599L11.489 8.67465L19.5754 0.595991C20.3708 -0.198635 21.6081 -0.198635 22.4035 0.595991C23.1989 1.39062 23.1989 2.62666 22.4035 3.42128L14.317 11.5L22.4035 19.5787C23.1989 20.3733 23.1989 21.6094 22.4035 22.404C21.6081 23.1986 20.3708 23.1986 19.5754 22.404L11.489 14.3253L3.4025 22.404Z"
+            fill="#E31E25"
+          />
+        </svg>
+      </button>
+    </li>
+    <li
+      className="basket-list__item"
+    >
+      <img
+        alt="TAKAMINE"
+        className="basket-list__img"
+        height="100"
+        src="http://pngimg.com/uploads/guitar/guitar_PNG3369.png"
+        width="100"
+      />
+      <div
+        className="basket-list__item-inner-wr"
+      >
+        <h4
+          className="basket-list__title"
+        >
+          TAKAMINE
+        </h4>
+        <p
+          className="basket-list__quantity"
+        >
+          in shop: 
+          10
+        </p>
+        <p
+          className="basket-list__price"
+        >
+          cosnt: 
+          20000
+        </p>
+        <p
+          className="basket-list__price"
+        >
+          total: 
+        </p>
+      </div>
+      <div
+        className="basket-list__item-wr"
+      >
+        <button
+          className="button basket-list__btn-minus"
+          onClick={[Function]}
+        >
+          -
+        </button>
+        <span
+          className="basket-list__count"
+        >
+          1
+        </span>
+        <button
+          className="button basket-list__btn-plus"
+          onClick={[Function]}
+        >
+          +
+        </button>
+      </div>
+      <button
+        className="basket-list__button button"
+        onClick={[Function]}
+      >
+        <svg
+          fill="none"
+          height="23"
+          viewBox="0 0 23 23"
+          width="23"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.4025 22.404C2.60711 23.1986 1.36983 23.1986 0.574442 22.404C0.176748 22.0067 2.21936e-07 21.5211 2.45092e-07 20.9914C2.68249e-07 20.4616 0.176748 19.976 0.574443 19.5787L8.66089 11.5L0.574443 3.42128C0.176749 3.02397 1.0517e-06 2.53839 1.07485e-06 2.00864C1.09801e-06 1.47889 0.176749 0.993303 0.574443 0.59599C1.36983 -0.198636 2.60712 -0.198636 3.4025 0.59599L11.489 8.67465L19.5754 0.595991C20.3708 -0.198635 21.6081 -0.198635 22.4035 0.595991C23.1989 1.39062 23.1989 2.62666 22.4035 3.42128L14.317 11.5L22.4035 19.5787C23.1989 20.3733 23.1989 21.6094 22.4035 22.404C21.6081 23.1986 20.3708 23.1986 19.5754 22.404L11.489 14.3253L3.4025 22.404Z"
+            fill="#E31E25"
+          />
+        </svg>
+      </button>
+    </li>
+    <li
+      className="basket-list__item"
+    >
+      <img
+        alt="Fender"
+        className="basket-list__img"
+        height="100"
+        src="http://pngimg.com/uploads/guitar/guitar_PNG3369.png"
+        width="100"
+      />
+      <div
+        className="basket-list__item-inner-wr"
+      >
+        <h4
+          className="basket-list__title"
+        >
+          Fender
+        </h4>
+        <p
+          className="basket-list__quantity"
+        >
+          in shop: 
+          20
+        </p>
+        <p
+          className="basket-list__price"
+        >
+          cosnt: 
+          210000
+        </p>
+        <p
+          className="basket-list__price"
+        >
+          total: 
+        </p>
+      </div>
+      <div
+        className="basket-list__item-wr"
+      >
+        <button
+          className="button basket-list__btn-minus"
+          onClick={[Function]}
+        >
+          -
+        </button>
+        <span
+          className="basket-list__count"
+        >
+          4
+        </span>
+        <button
+          className="button basket-list__btn-plus"
+          onClick={[Function]}
+        >
+          +
+        </button>
+      </div>
+      <button
+        className="basket-list__button button"
+        onClick={[Function]}
+      >
+        <svg
+          fill="none"
+          height="23"
+          viewBox="0 0 23 23"
+          width="23"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.4025 22.404C2.60711 23.1986 1.36983 23.1986 0.574442 22.404C0.176748 22.0067 2.21936e-07 21.5211 2.45092e-07 20.9914C2.68249e-07 20.4616 0.176748 19.976 0.574443 19.5787L8.66089 11.5L0.574443 3.42128C0.176749 3.02397 1.0517e-06 2.53839 1.07485e-06 2.00864C1.09801e-06 1.47889 0.176749 0.993303 0.574443 0.59599C1.36983 -0.198636 2.60712 -0.198636 3.4025 0.59599L11.489 8.67465L19.5754 0.595991C20.3708 -0.198635 21.6081 -0.198635 22.4035 0.595991C23.1989 1.39062 23.1989 2.62666 22.4035 3.42128L14.317 11.5L22.4035 19.5787C23.1989 20.3733 23.1989 21.6094 22.4035 22.404C21.6081 23.1986 20.3708 23.1986 19.5754 22.404L11.489 14.3253L3.4025 22.404Z"
+            fill="#E31E25"
+          />
+        </svg>
+      </button>
+    </li>
+    <li
+      className="basket-list__item"
+    >
+      <img
+        alt="Test"
+        className="basket-list__img"
+        height="100"
+        src="http://pngimg.com/uploads/guitar/guitar_PNG3369.png"
+        width="100"
+      />
+      <div
+        className="basket-list__item-inner-wr"
+      >
+        <h4
+          className="basket-list__title"
+        >
+          Test
+        </h4>
+        <p
+          className="basket-list__quantity"
+        >
+          in shop: 
+          11
+        </p>
+        <p
+          className="basket-list__price"
+        >
+          cosnt: 
+          2210000
+        </p>
+        <p
+          className="basket-list__price"
+        >
+          total: 
+        </p>
+      </div>
+      <div
+        className="basket-list__item-wr"
+      >
+        <button
+          className="button basket-list__btn-minus"
+          onClick={[Function]}
+        >
+          -
+        </button>
+        <span
+          className="basket-list__count"
+        >
+          11
+        </span>
+        <button
+          className="button basket-list__btn-plus"
+          onClick={[Function]}
+        >
+          +
+        </button>
+      </div>
+      <button
+        className="basket-list__button button"
+        onClick={[Function]}
+      >
+        <svg
+          fill="none"
+          height="23"
+          viewBox="0 0 23 23"
+          width="23"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.4025 22.404C2.60711 23.1986 1.36983 23.1986 0.574442 22.404C0.176748 22.0067 2.21936e-07 21.5211 2.45092e-07 20.9914C2.68249e-07 20.4616 0.176748 19.976 0.574443 19.5787L8.66089 11.5L0.574443 3.42128C0.176749 3.02397 1.0517e-06 2.53839 1.07485e-06 2.00864C1.09801e-06 1.47889 0.176749 0.993303 0.574443 0.59599C1.36983 -0.198636 2.60712 -0.198636 3.4025 0.59599L11.489 8.67465L19.5754 0.595991C20.3708 -0.198635 21.6081 -0.198635 22.4035 0.595991C23.1989 1.39062 23.1989 2.62666 22.4035 3.42128L14.317 11.5L22.4035 19.5787C23.1989 20.3733 23.1989 21.6094 22.4035 22.404C21.6081 23.1986 20.3708 23.1986 19.5754 22.404L11.489 14.3253L3.4025 22.404Z"
+            fill="#E31E25"
+          />
+        </svg>
+      </button>
+    </li>
+  </ul>
+</div>
+`;
