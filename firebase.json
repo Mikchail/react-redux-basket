@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "public": "public",
+    "site": "cart-guitar",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

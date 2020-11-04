@@ -14,11 +14,6 @@ const Signin = (props) => {
 
   };
 
-  setTimeout(()=>{
-    addUser('2222');
-    history.push('/');
-  },10)
-
   return (
     <div className="popup-wrapper">
       <div className="container">
